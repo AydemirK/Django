@@ -3,6 +3,11 @@
 <h1>
     POSTS:
 </h1>
+<form action="/posts/" method="get">
+    {{ search_form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
 {% for post in posts%}
     <div class="card" style="width: 18rem;">
         <ul class="list-group list-group-flush">
@@ -11,4 +16,4 @@
         </ul>
         </div>
 {% endfor %}
-{% endblock %}
+{% endblock %}  

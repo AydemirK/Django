@@ -31,12 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'jazzmin',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles', 
+    
+    "debug_toolbar",
+    
     'cars',
     'user'
 ]
@@ -49,10 +55,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cars.middleware.RequestLoggingMiddleware',
+    
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "querycount.middleware.QueryCountMiddleware",
+    
+    # 'cars.middleware.RequestLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'webshop.urls'
+
+INTERNAL_IPS = [
+
+    "127.0.0.1",
+
+]
 
 TEMPLATES = [
     {

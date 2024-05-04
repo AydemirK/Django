@@ -1,9 +1,10 @@
 from datetime import datetime
 import random
+from django.db.models import Q
 from django.shortcuts import redirect, render, HttpResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView , UpdateView
-from cars.form import PostForm, ReviewForm
+from cars.form import PostForm, ReviewForm, SearchForm
 from cars.models import Post
 from user.models import Profile
 from django.utils.decorators import method_decorator
@@ -41,13 +42,42 @@ class FunView(View):
             ]
             anecdote = random.choice(anecdotes)
             return HttpResponse(anecdote)
-    
-    
+
+
 
 class PostListView(ListView):
     model = Post
     context_object_name = 'posts'
+    template_name = 'cars/post_list.html'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def get_queryset(self):
+        search = self.request.GET.get('search')
+        tags = self.request.GET.getlist('tags')
+
+        posts = Post.objects.all().prefetch_related('tags')
+
+        if search:
+            posts = posts.filter(
+                Q(brand__icontains=search) | Q(text__icontains=search)
+            )
+        
+        if tags:
+            posts = posts.filter(tags__id__in=tags).distinct()
+
+
+        return posts
+
+    def get(self, request, *args, **kwargs):
+        search_form = SearchForm(request.GET)
+        self.object_list = self.get_queryset()
+        context = self.get_context_data()
+        context['search_form'] = search_form
+        return self.render_to_response(context)
+
 
 
 

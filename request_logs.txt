@@ -556,3 +556,13 @@
 {'timestamp': '2024-04-30 10:11:36', 'path': '/posts/1/', 'method': 'GET', 'response_time': 0.005063772201538086, 'filename': 'cars.views.view'}
 {'timestamp': '2024-04-30 10:11:36', 'path': '/posts/1/', 'method': 'GET', 'response_time': 0.008067131042480469, 'filename': 'cars.views.view'}
 {'timestamp': '2024-04-30 10:11:36', 'path': '/posts/1/', 'method': 'GET', 'response_time': 0.004071235656738281, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:28:03', 'path': '/posts/1/', 'method': 'GET', 'response_time': 0.08202934265136719, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:28:04', 'path': '/favicon.ico', 'method': 'GET', 'response_time': 0.1692202091217041, 'filename': ''}
+{'timestamp': '2024-05-03 16:28:06', 'path': '/', 'method': 'GET', 'response_time': 0.01199650764465332, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:28:09', 'path': '/posts/', 'method': 'GET', 'response_time': 0.01199483871459961, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:28:11', 'path': '/profile/', 'method': 'GET', 'response_time': 0.013084888458251953, 'filename': 'user.views.view'}
+{'timestamp': '2024-05-03 16:28:11', 'path': '/media/media/photo_2024-02-17_19-00-29.jpg', 'method': 'GET', 'response_time': 0.001997232437133789, 'filename': 'django.views.static.serve'}
+{'timestamp': '2024-05-03 16:28:14', 'path': '/', 'method': 'GET', 'response_time': 0.003000497817993164, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:36:24', 'path': '/posts/', 'method': 'GET', 'response_time': 0.015993833541870117, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:36:36', 'path': '/posts/', 'method': 'GET', 'response_time': 0.003002166748046875, 'filename': 'cars.views.view'}
+{'timestamp': '2024-05-03 16:36:45', 'path': '/posts/', 'method': 'GET', 'response_time': 0.0020105838775634766, 'filename': 'cars.views.view'}

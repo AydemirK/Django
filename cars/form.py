@@ -1,5 +1,5 @@
 from django import forms
-from cars.models import Post, Review
+from cars.models import Post, Review, Tag
 
 
 class PostForm(forms.ModelForm):
@@ -13,16 +13,23 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ['text']
 
-# class ReviewForm(forms.ModelForm):
-#     class Meta:
-#         model = Review
-#         fields = ['text']
 
-#     user = None  # Добавляем атрибут user
 
-#     def save(self, commit=True):
-#         instance = super().save(commit=False)
-#         instance.user = self.user  # Устанавливаем пользователя для отзыва
-#         if commit:
-#             instance.save()
-#         return instance
+class SearchForm(forms.Form):
+    search = forms.CharField(
+        required=False,
+        max_length=100,
+        min_length=3,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Поиск',
+                'class': 'form-control'
+            }
+        )
+    )
+    tags = forms.ModelMultipleChoiceField(
+        required=False,
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
+

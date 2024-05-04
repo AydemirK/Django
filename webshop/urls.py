@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from cars.views import HelloView, MainView , FunView, PostListView, PostDetailView, PostCreateView, PostUpdateView, AddReviewView
@@ -8,6 +8,9 @@ from user.views import RegisterView, LoginView, LogoutView, ProfileView
  
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path("__debug__/", include("debug_toolbar.urls")),
+    
     path('', MainView.as_view(), name='main_view'),
     path('hello/', HelloView.as_view(), name='hello_view'),
     path('fun/', FunView.as_view(), name='fun_view'),
